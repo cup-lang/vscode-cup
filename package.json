@@ -1,0 +1,30 @@
+{
+	"name": "cup",
+	"displayName": "Cup Language ☕",
+	"description": "Official Cup Development Extension",
+	"icon": "icon.png",
+	"version": "0.0.4",
+	"publisher": "cup-lang",
+	"repository": "https://github.com/cup-lang/vscode-cup",
+	"categories": [
+		"Programming Languages"
+	],
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"contributes": {
+		"languages": [
+		  {
+			"id": "cup",
+			"extensions": [".cup"]
+		  }
+		],
+		"grammars": [
+		  {
+			"language": "cup",
+			"scopeName": "source.cup",
+			"path": "grammar.json"
+		  }
+		]
+	  }
+}
