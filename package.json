@@ -3,8 +3,13 @@
 	"displayName": "Cup Language ☕",
 	"description": "Official Cup Development Extension",
 	"icon": "icon.png",
-	"version": "0.0.4",
+	"version": "0.0.7",
 	"publisher": "cup-lang",
+	"galleryBanner": {
+		"color": "#8a4b38",
+		"theme": "dark"
+	},
+	"homepage": "https://cup-lang.org",
 	"repository": "https://github.com/cup-lang/vscode-cup",
 	"categories": [
 		"Programming Languages"
@@ -14,17 +19,17 @@
 	},
 	"contributes": {
 		"languages": [
-		  {
-			"id": "cup",
-			"extensions": [".cup"]
-		  }
+			{
+				"id": "cup",
+				"extensions": [".cup"]
+			}
 		],
 		"grammars": [
-		  {
-			"language": "cup",
-			"scopeName": "source.cup",
-			"path": "grammar.json"
-		  }
+			{
+				"language": "cup",
+				"scopeName": "source.cup",
+				"path": "./grammar.json"
+			}
 		]
-	  }
+	}
 }

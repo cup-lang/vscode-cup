@@ -1,0 +1,279 @@
+{
+    "name": "Cup",
+    "scopeName": "source.cup",
+    "fileTypes": [
+        "cup"
+    ],
+    "repository": {
+        "comment": {
+            "name": "comment.line.cup",
+            "match": "`.*"
+        },
+        "namespace": {
+            "match": "\\b([a-zA-Z][a-zA-Z0-9]*)\\s*(<.*?>)?\\s*(:)",
+            "captures": {
+                "1": {
+                    "name": "entity.name.namespace.cup"
+                },
+                "2": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.operator"
+                }
+            }
+        },
+        "type": {
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(<.*>)?",
+            "captures": {
+                "1": {
+                    "name": "entity.name.type.cup"
+                },
+                "2": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                }
+            }
+        },
+        "generic": {
+            "patterns": [
+                { "include": "#angle_brackets" },
+                { "include": "#local" },
+                { "include": "#type" }
+            ]
+        },
+        "tag": {
+            "name": "entity.other.attribute-name.cup",
+            "match": "\\B#[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        "label": {
+            "name": "entity.name.tag.cup",
+            "match": "\\B~[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        "int_lit": {
+            "name": "constant.numeric.integer.cup",
+            "match": "\\b[0-9][0-9_]*"
+        },
+        "float_lit": {
+            "name": "constant.numeric.float.cup",
+            "match": "\\b[0-9][0-9_]*\\.[0-9][0-9_]*"
+        },
+        "bool_lit": {
+            "name": "constant.language.boolean.cup",
+            "match": "\\b(true|false)\\b"
+        },
+        "char_lit": {
+            "name": "string.quoted.single.cup",
+            "begin": "'",
+            "end": "'"
+        },
+        "string_lit": {
+            "name": "string.quoted.double.cup",
+            "begin": "\"",
+            "end": "\""
+        },
+        "curly_brackets": {
+            "name": "punctuation.brackets.curly.cup",
+            "match": "[{}]"
+        },
+        "square_brackets": {
+            "name": "punctuation.brackets.square.cup",
+            "match": "[\\[\\]]"
+        },
+        "angle_brackets": {
+            "name": "punctuation.brackets.angle.cup",
+            "match": "[<>]"
+        },
+        "round_brackets": {
+            "name": "punctuation.brackets.round.cup",
+            "match": "[()]"
+        },
+        "comma": {
+            "name": "punctuation.comma.cup",
+            "match": ","
+        },
+        "semicolon": {
+            "name": "punctuation.semi.cup",
+            "match": ";"
+        },
+        "dot": {
+            "name": "keyword.operator.access.dot.cup",
+            "match": "\\."
+        },
+        "logic_op": {
+            "name": "keyword.operator.logical.cup",
+            "match": "(\\||&|!)"
+        },
+        "assign_op": {
+            "name": "keyword.operator.assignment.cup",
+            "match": "(=|\\+=|-=|\\*=|/=|%=)"
+        },
+        "comp_op": {
+            "name": "keyword.operator.comparison.cup",
+            "match": "(==|!=|<|>|<=|>=)"
+        },
+        "mem_op": {
+            "name": "keyword.operator.memory.cup",
+            "match": "(@|\\$)"
+        },
+        "math_op": {
+            "name": "keyword.operator.math.cup",
+            "match": "[+\\-*/%]"
+        },
+        "control_keyword": {
+            "name": "keyword.control.cup",
+            "match": "\\b(if|elif|else|loop|while|for|each|in|match|ret|next|jump|try)\\b"
+        },
+        "var_def": {
+            "match": "\\b(var)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*)([a-zA-Z_][a-zA-Z0-9_]*)\\s*(<.*?>)?",
+            "captures": {
+                "1": { "name": "keyword.other.cup" },
+                "2": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                },
+                "3": { "name": "variable.cup" },
+                "4": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                }
+            }
+        },
+        "mod": {
+            "match": "\\b(mod|def)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)",
+            "captures": {
+                "1": { "name": "keyword.other.cup" },
+                "2": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                }
+            }
+        },
+        "as": {
+            "match": "\\b(as)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)",
+            "captures": {
+                "1": { "name": "keyword.other.cup" },
+                "2": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                }
+            }
+        },
+        "other_keyword": {
+            "name": "keyword.other.cup",
+            "match": "\\b(this|type|tag|mod|use|def|sub|var|new|as|has|echo)\\b"
+        },
+        "storage_keyword": {
+            "name": "storage.type.cup",
+            "match": "\\b(comp|enum|prop)\\b"
+        },
+        "sub_def": {
+            "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s+(?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*)([a-zA-Z_][a-zA-Z0-9_]*)\\s*(<.*?>)?\\s*(\\()",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                },
+                "2": { "name": "entity.name.function.cup" },
+                "3": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                },
+                "4": { "name": "punctuation.brackets.round.cup" }
+            },
+            "end": "}",
+            "endCaptures": {
+                "0": { "name": "punctuation.brackets.curly.cup" }
+            },
+            "patterns": [
+                { "include": "#local" }
+            ]
+        },
+        "var_def_type": {
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s+(?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*)([a-zA-Z_][a-zA-Z0-9_]*)\\s*(<.*?>)?",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                },
+                "2": { "name": "variable.cup" },
+                "3": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                }
+            }
+        },
+        "local": {
+            "patterns": [
+                { "include": "#comment" },
+                { "include": "#namespace" },
+                { "include": "#tag" },
+                { "include": "#label" },
+                { "include": "#int_lit" },
+                { "include": "#float_lit" },
+                { "include": "#bool_lit" },
+                { "include": "#char_lit" },
+                { "include": "#string_lit" },
+                { "include": "#curly_brackets" },
+                { "include": "#square_brackets" },
+                { "include": "#round_brackets" },
+                { "include": "#comma" },
+                { "include": "#semicolon" },
+                { "include": "#dot" },
+                { "include": "#logic_op" },
+                { "include": "#assign_op" },
+                { "include": "#comp_op" },
+                { "include": "#mem_op" },
+                { "include": "#math_op" },
+                { "include": "#control_keyword" },
+                { "include": "#var_def" },
+                { "include": "#mod" },
+                { "include": "#as" },
+                { "include": "#other_keyword" },
+                { "include": "#storage_keyword" },
+                { "include": "#sub_def" },
+                { "include": "#var_def_type" },
+                {
+                    "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(<.*?>)?\\s*(\\()",
+                    "beginCaptures": {
+                        "1": { "name": "entity.name.function.cup" },
+                        "2": {
+                            "patterns": [
+                                { "include": "#angle_brackets" },
+                                { "include": "#local" },
+                                { "include": "#type" }
+                            ]
+                        },
+                        "3": { "name": "punctuation.brackets.round.cup" }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.brackets.round.cup" }
+                    },
+                    "patterns": [
+                        { "include": "#local" }
+                    ]
+                }
+            ]
+        }
+    },
+    "patterns": [
+        { "include": "#local" }
+    ]
+}
