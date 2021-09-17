@@ -173,6 +173,18 @@
             "name": "keyword.other.cup",
             "match": "\\b(this|type|tag|mod|use|def|sub|var|new|as|has|echo)\\b"
         },
+        "comp": {
+            "match": "\\b(comp|enum|prop)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)",
+            "captures": {
+                "1": { "name": "storage.type.cup" },
+                "2": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                }
+            }
+        },
         "storage_keyword": {
             "name": "storage.type.cup",
             "match": "\\b(comp|enum|prop)\\b"
@@ -246,6 +258,7 @@
                 { "include": "#mod" },
                 { "include": "#as" },
                 { "include": "#other_keyword" },
+                { "include": "#comp" },
                 { "include": "#storage_keyword" },
                 { "include": "#sub_def" },
                 { "include": "#var_def_type" },

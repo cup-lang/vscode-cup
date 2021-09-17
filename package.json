@@ -2,8 +2,8 @@
 	"name": "cup",
 	"displayName": "Cup Language ☕",
 	"description": "Official Cup Development Extension",
-	"icon": "icon.png",
-	"version": "0.0.7",
+	"icon": "cup.png",
+	"version": "0.0.8",
 	"publisher": "cup-lang",
 	"galleryBanner": {
 		"color": "#8a4b38",
