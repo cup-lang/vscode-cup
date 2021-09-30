@@ -47,7 +47,19 @@
         },
         "tag": {
             "name": "entity.other.attribute-name.cup",
-            "match": "\\B#[a-zA-Z_][a-zA-Z0-9_]*\\b"
+            "match": "\\B#(?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(<.*?>)?",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                },
+                "2": {
+                    "patterns": [
+                        { "include": "#generic" }
+                    ]
+                }
+            }
         },
         "label": {
             "name": "entity.name.tag.cup",
@@ -105,7 +117,7 @@
         },
         "logic_op": {
             "name": "keyword.operator.logical.cup",
-            "match": "(\\||&|!)"
+            "match": "[\\|&!]"
         },
         "assign_op": {
             "name": "keyword.operator.assignment.cup",
@@ -117,7 +129,7 @@
         },
         "mem_op": {
             "name": "keyword.operator.memory.cup",
-            "match": "(@|\\$)"
+            "match": "[@\\$]"
         },
         "math_op": {
             "name": "keyword.operator.math.cup",
