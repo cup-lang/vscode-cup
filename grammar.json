@@ -169,11 +169,29 @@
                 }
             }
         },
-        "as": {
-            "match": "\\b(as)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)",
+        "new_as": {
+            "match": "\\b(new|as)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)",
             "captures": {
                 "1": { "name": "keyword.other.cup" },
                 "2": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                }
+            }
+        },
+        "has": {
+            "match": "((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)\\s+(has)\\s+((?:[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?\\s*:\\s*)*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?:<.*?>)?)",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#namespace" },
+                        { "include": "#type" }
+                    ]
+                },
+                "2": { "name": "keyword.other.cup" },
+                "3": {
                     "patterns": [
                         { "include": "#namespace" },
                         { "include": "#type" }
@@ -268,7 +286,8 @@
                 { "include": "#control_keyword" },
                 { "include": "#var_def" },
                 { "include": "#mod" },
-                { "include": "#as" },
+                { "include": "#new_as" },
+                { "include": "#has" },
                 { "include": "#other_keyword" },
                 { "include": "#comp" },
                 { "include": "#storage_keyword" },
