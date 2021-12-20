@@ -1,9 +1,9 @@
 {
 	"name": "cup",
-	"displayName": "Cup Language ☕",
+	"displayName": "Cup",
 	"description": "Official Cup Development Extension",
 	"icon": "cup.png",
-	"version": "0.0.8",
+	"version": "0.0.10",
 	"publisher": "cup-lang",
 	"galleryBanner": {
 		"color": "#8a4b38",
@@ -21,7 +21,13 @@
 		"languages": [
 			{
 				"id": "cup",
-				"extensions": [".cup"]
+				"aliases": [
+					"Cup",
+					"cup"
+				],
+				"extensions": [
+					".cup"
+				]
 			}
 		],
 		"grammars": [
