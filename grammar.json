@@ -4,123 +4,148 @@
     "fileTypes": [
         "cup"
     ],
-    "patterns": [
-        {
-            "comment": "Comment",
-            "name": "comment.line.cup",
-            "match": "#.*"
-        },
-        {
-            "comment": "Type name",
-            "name": "entity.name.type.cup",
-            "match": "(?<=^|[^a-z])[A-Z][a-zA-Z0-9]*(?=$|[^a-z])"
-        },
-        {
-            "comment": "Label",
-            "name": "entity.name.tag.cup",
-            "match": "\\B~[a-z][a-zA-Z0-9]*\\b"
-        },
-        {
-            "comment": "Integer literal",
-            "name": "constant.numeric.integer.cup",
-            "match": "\\b[0-9]+"
-        },
-        {
-            "comment": "Floating-point literal",
-            "name": "constant.numeric.float.cup",
-            "match": "\\b[0-9]+\\.[0-9]+"
-        },
-        {
-            "comment": "Character literal",
-            "name": "string.quoted.single.cup",
-            "begin": "'",
-            "end": "'"
-        },
-        {
-            "comment": "String literal",
-            "name": "string.quoted.double.cup",
-            "begin": "\"",
-            "end": "\""
-        },
-        {
-            "comment": "Curly brackets",
-            "name": "punctuation.brackets.curly.cup",
-            "match": "[{}]"
-        },
-        {
-            "comment": "Square brackets",
-            "name": "punctuation.brackets.square.cup",
-            "match": "[\\[\\]]"
-        },
-        {
-            "comment": "Round brackets",
-            "name": "punctuation.brackets.round.cup",
-            "match": "[()]"
-        },
-        {
-            "comment": "Comma seperator",
-            "name": "punctuation.comma.cup",
-            "match": ","
-        },
-        {
-            "comment": "Semicolon separator",
-            "name": "punctuation.semi.cup",
-            "match": ";"
-        },
-        {
-            "comment": ": operator",
-            "name": "punctuation.operator.access.colon.cup",
-            "match": ":"
-        },
-        {
-            "comment": ". operator",
-            "name": "punctuation.operator.access.dot.cup",
-            "match": "\\."
-        },
-        {
-            "comment": "@ symbol",
-            "name": "entity.other.attribute-name.cup",
-            "match": "@"
-        },
-        {
-            "comment": "$ symbol",
-            "name": "keyword.operator.type.infer.cup",
-            "match": "\\$"
-        },
-        {
-            "comment": "| operator",
-            "name": "keyword.operator.argument.cup",
-            "match": "\\|"
-        },
-        {
-            "comment": "Logical operators",
-            "name": "keyword.operator.logical.cup",
-            "match": "[!^&]"
-        },
-        {
-            "comment": "Assignment operators",
-            "name": "keyword.operator.assignment.cup",
-            "match": "=|%=|\\+=|-=|\\*=|\\/="
-        },
-        {
-            "comment": "Comparison operators",
-            "name": "keyword.operator.comparison.cup",
-            "match": "==|!=|<|>|<=|>="
-        },
-        {
-            "comment": "Arithmetic operators",
-            "name": "keyword.operator.math.cup",
-            "match": "[+\\-*\\/]"
-        },
-        {
-            "comment": "Control keywords",
-            "name": "keyword.control.cup",
-            "match": "\\b(if|elif|else|loop|next|ret|jump|try|def)\\b"
-        },
-        {
-            "comment": "Other keywords",
-            "name": "keyword.other.cup",
-            "match": "\\b(use|imp)\\b"
+    "repository": {
+        "all": {
+            "patterns": [
+                {
+                    "comment": "Comment",
+                    "name": "comment.line.cup",
+                    "match": "#.*"
+                },
+                {
+                    "comment": "Label",
+                    "name": "entity.name.tag.cup",
+                    "match": "\\B~\\s*[a-z][a-zA-Z0-9]*\\b"
+                },
+                {
+                    "comment": "Integer literal",
+                    "name": "constant.numeric.integer.cup",
+                    "match": "\\b[0-9]+"
+                },
+                {
+                    "comment": "Floating-point literal",
+                    "name": "constant.numeric.float.cup",
+                    "match": "\\b[0-9]+\\s*\\.\\s*[0-9]+"
+                },
+                {
+                    "comment": "Character literal",
+                    "name": "string.quoted.single.cup",
+                    "begin": "'",
+                    "end": "'"
+                },
+                {
+                    "comment": "String literal",
+                    "name": "string.quoted.double.cup",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "comment": "String interpolation",
+                            "name": "punctuation.brackets.curly.cup",
+                            "begin": "{",
+                            "end": "}",
+                            "patterns": [ { "include": "#all" } ]
+                        }
+                    ]
+                },
+                {
+                    "comment": "Square brackets",
+                    "begin": "\\[",
+                    "end": "\\]",
+                    "captures": { "0": { "name": "punctuation.brackets.square.cup" } },
+                    "patterns": [ { "include": "#all" } ]
+                },
+                {
+                    "comment": "Round brackets",
+                    "begin": "\\(",
+                    "end": "\\)",
+                    "captures": { "0": { "name": "punctuation.brackets.round.cup" } },
+                    "patterns": [ { "include": "#all" } ]
+                },
+                {
+                    "comment": "Comma seperator",
+                    "name": "punctuation.comma.cup",
+                    "match": ","
+                },
+                {
+                    "comment": "Semicolon separator",
+                    "name": "punctuation.semi.cup",
+                    "match": ";"
+                },
+                {
+                    "comment": ": operator",
+                    "name": "punctuation.operator.access.colon.cup",
+                    "match": ":"
+                },
+                {
+                    "comment": ". operator",
+                    "name": "punctuation.operator.access.dot.cup",
+                    "match": "\\."
+                },
+                {
+                    "comment": "` operator",
+                    "name": "keyword.operator.type.cast.cup",
+                    "match": "`"
+                },
+                {
+                    "comment": "@ symbol",
+                    "name": "entity.other.attribute-name.cup",
+                    "match": "([a-z][a-zA-Z0-9]*\\s*)?@",
+                    "captures": { "1": { "name": "entity.name.function.cup" } }
+                },
+                {
+                    "comment": "$ symbol",
+                    "name": "keyword.operator.type.infer.cup",
+                    "match": "\\$"
+                },
+                {
+                    "comment": "| operator",
+                    "name": "keyword.operator.argument.cup",
+                    "match": "([a-z][a-zA-Z0-9]*\\s*)?\\|",
+                    "captures": { "1": { "name": "entity.name.function.cup" } }
+                },
+                {
+                    "comment": "Logical operators",
+                    "name": "keyword.operator.logical.cup",
+                    "match": "[!^&]"
+                },
+                {
+                    "comment": "Assignment operators",
+                    "name": "keyword.operator.assignment.cup",
+                    "match": "=|%=|\\+=|-=|\\*=|\\/="
+                },
+                {
+                    "comment": "Comparison operators",
+                    "name": "keyword.operator.comparison.cup",
+                    "match": "==|!=|<|>|<=|>="
+                },
+                {
+                    "comment": "Arithmetic operators",
+                    "name": "keyword.operator.math.cup",
+                    "match": "[+\\-*\\/]"
+                },
+                {
+                    "comment": "Control keywords",
+                    "name": "keyword.control.cup",
+                    "match": "\\b(if|elif|else|loop|next|ret|jump|try|def)\\b"
+                },
+                {
+                    "comment": "Other keywords",
+                    "name": "keyword.other.cup",
+                    "match": "\\b(type|none|arg|use|imp)\\b"
+                },
+                {
+                    "comment": "Type name",
+                    "name": "entity.name.type.cup",
+                    "match": "(?<=^|[^a-z])[A-Z][a-zA-Z0-9]*(?=$|[^a-z])"
+                },
+                {
+                    "comment": "Variable name",
+                    "name": "variable.other.cup",
+                    "match": "(?<=^|[^a-z])[a-z][a-zA-Z0-9]*(?=$|[^a-z])"
+                }
+            ]
         }
-    ]
+    },
+    "patterns": [ { "include": "#all" } ]
 }
