@@ -15,12 +15,12 @@
                 {
                     "comment": "Floating-point literal",
                     "name": "constant.numeric.float.cup",
-                    "match": "\\b[0-9]+\\s*\\.\\s*[0-9]+"
+                    "match": "(?<=^|[^a-z])[0-9]+\\s*\\.\\s*[0-9]+"
                 },
                 {
                     "comment": "Integer literal",
                     "name": "constant.numeric.integer.cup",
-                    "match": "\\b[0-9]+"
+                    "match": "(?<=^|[^a-z])[0-9]+"
                 },
                 {
                     "comment": "Character literal",
