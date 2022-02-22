@@ -1,7 +1,7 @@
-<img src="https://raw.githubusercontent.com/cup-lang/branding/main/cup-vscode.png" width="128" align="right">
+<img src="https://raw.githubusercontent.com/cup-lang/branding/main/extensions/CupVSCode.png" width="128" align="right">
 
-# Cup for Visual Studio Code <img src="https://raw.githubusercontent.com/cup-lang/branding/main/cup-vscode.png" width="32" height="32" align="center">
-Official Cup Visual Studio Code Extension
+# Cup for Visual Studio Code
+Official Cup [Visual Studio Code](https://code.visualstudio.com) Extension
 
 ## Installation
 Install this extension from the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=cup-lang.cup) or by entering `ext install cup-lang.cup` at the command palette (<kbd>Ctrl</kbd>+<kbd>P</kbd>).
