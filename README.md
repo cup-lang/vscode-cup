@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/cup-lang/branding/main/extensions/CupVSCode.png" width="128" align="right">
+<img src="https://raw.githubusercontent.com/cup-lang/branding/main/extensions/VSCodeCup.png" width="128" align="right">
 
 # Cup for Visual Studio Code
 Official Cup [Visual Studio Code](https://code.visualstudio.com) Extension
