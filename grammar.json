@@ -25,23 +25,54 @@
                 {
                     "comment": "Character literal",
                     "name": "string.quoted.single.cup",
-                    "begin": "'",
-                    "end": "'"
+                    "match": "'(?:\\\\'|\\\\\\\\|[^'\\\\])*'",
+                    "captures": {
+                        "0": {
+                            "patterns": [
+                                {
+                                    "name": "keyword.operator.string.cup",
+                                    "match": "'"
+                                },
+                                {
+                                    "comment": "Escapes",
+                                    "name": "constant.character.escape.cup",
+                                    "match": "\\\\['\\\\]"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Interpolated string left",
+                    "name": "string.interpolated.cup",
+                    "match": "\"[^\"]*(?<=[^\\\\])({)",
+                    "captures": { "1": { "name": "keyword.operator.brackets.curly.cup" } }
+                },
+                {
+                    "comment": "Interpolated string right",
+                    "name": "string.interpolated.cup",
+                    "match": "(})[^\"]*\"",
+                    "captures": { "1": { "name": "keyword.operator.brackets.curly.cup" } }
                 },
                 {
                     "comment": "String literal",
                     "name": "string.quoted.double.cup",
-                    "begin": "\"",
-                    "end": "\"",
-                    "patterns": [
-                        {
-                            "comment": "String interpolation",
-                            "name": "keyword.operator.brackets.curly.cup",
-                            "begin": "{",
-                            "end": "}",
-                            "patterns": [ { "include": "#all" } ]
+                    "match": "\"(?:\\\\\"|\\\\\\\\|\\\\{|[^\"\\\\])*\"",
+                    "captures": {
+                        "0": {
+                            "patterns": [
+                                {
+                                    "name": "keyword.operator.string.cup",
+                                    "match": "\""
+                                },
+                                {
+                                    "comment": "Escapes",
+                                    "name": "constant.character.escape.cup",
+                                    "match": "\\\\[\"\\\\{]"
+                                }
+                            ]
                         }
-                    ]
+                    }
                 },
                 {
                     "comment": "Round brackets",
@@ -60,12 +91,12 @@
                 {
                     "comment": "Logical operators",
                     "name": "keyword.operator.logical.cup",
-                    "match": "[!^&]"
+                    "match": "[\\^&]"
                 },
                 {
                     "comment": "Arithmetic operators",
                     "name": "keyword.operator.math.cup",
-                    "match": "[+\\-*\\/]"
+                    "match": "[+\\-*\\/%]"
                 },
                 {
                     "comment": "Comparison operators",
@@ -80,22 +111,17 @@
                 {
                     "comment": "Other operators",
                     "name": "keyword.operator.other.cup",
-                    "match": "[,;:$`@_|~]"
+                    "match": "[,;:@_|~$!?]"
                 },
                 {
                     "comment": "Control keywords",
                     "name": "keyword.control.cup",
-                    "match": "\\b(if|elif|else|loop|next|ret|jump|try|def)\\b"
-                },
-                {
-                    "comment": "Type keywords",
-                    "name": "storage.type.cup",
-                    "match": "(?<=^|[^a-z])(type|none)(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-z])(if|elif|else|loop|ret|jump|try|def)(?=$|[^a-z])"
                 },
                 {
                     "comment": "Other keywords",
                     "name": "keyword.other.cup",
-                    "match": "(?<=^|[^a-z])(gen|arg|use|as|imp)(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-z])(arg|use|as)(?=$|[^a-z])"
                 },
                 {
                     "comment": "Type name",
