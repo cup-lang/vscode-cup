@@ -9,70 +9,38 @@
             "patterns": [
                 {
                     "comment": "Comment",
-                    "name": "comment.line.number-sign.cup",
-                    "match": "#.*"
-                },
-                {
-                    "comment": "Floating-point literal",
-                    "name": "constant.numeric.float.cup",
-                    "match": "(?<=^|[^a-z])[0-9]+\\s*\\.\\s*[0-9]+"
-                },
-                {
-                    "comment": "Integer literal",
-                    "name": "constant.numeric.integer.cup",
-                    "match": "(?<=^|[^a-z])[0-9]+"
-                },
-                {
-                    "comment": "Character literal",
-                    "name": "string.quoted.single.cup",
-                    "match": "'(?:\\\\'|\\\\\\\\|[^'\\\\])*'",
-                    "captures": {
-                        "0": {
-                            "patterns": [
-                                {
-                                    "name": "keyword.operator.string.cup",
-                                    "match": "'"
-                                },
-                                {
-                                    "comment": "Escapes",
-                                    "name": "constant.character.escape.cup",
-                                    "match": "\\\\['\\\\]"
-                                }
-                            ]
+                    "name": "comment.line.cup",
+                    "begin": "\"",
+                    "end": "\"",
+                    "captures": { "0": { "name": "keyword.operator.comment.cup" } },
+                    "patterns": [
+                        {
+                            "comment": "Escapes",
+                            "name": "constant.character.escape.cup",
+                            "match": "\\\\[\"\\\\]"
                         }
-                    }
-                },
-                {
-                    "comment": "Interpolated string left",
-                    "name": "string.interpolated.cup",
-                    "match": "\"[^\"]*(?<=[^\\\\])({)",
-                    "captures": { "1": { "name": "keyword.operator.brackets.curly.cup" } }
-                },
-                {
-                    "comment": "Interpolated string right",
-                    "name": "string.interpolated.cup",
-                    "match": "(})[^\"]*\"",
-                    "captures": { "1": { "name": "keyword.operator.brackets.curly.cup" } }
+                    ]
                 },
                 {
                     "comment": "String literal",
-                    "name": "string.quoted.double.cup",
-                    "match": "\"(?:\\\\\"|\\\\\\\\|\\\\{|[^\"\\\\])*\"",
-                    "captures": {
-                        "0": {
-                            "patterns": [
-                                {
-                                    "name": "keyword.operator.string.cup",
-                                    "match": "\""
-                                },
-                                {
-                                    "comment": "Escapes",
-                                    "name": "constant.character.escape.cup",
-                                    "match": "\\\\[\"\\\\{]"
-                                }
-                            ]
+                    "name": "string.quoted.single.cup",
+                    "begin": "'",
+                    "end": "'",
+                    "captures": { "0": { "name": "keyword.operator.string.cup" } },
+                    "patterns": [
+                        {
+                            "comment": "Escapes",
+                            "name": "constant.character.escape.cup",
+                            "match": "\\\\['\\\\{}]"
+                        },
+                        {
+                            "comment": "String interpolation",
+                            "begin": "{",
+                            "end": "}",
+                            "captures": { "0": { "name": "keyword.operator.brackets.curly.cup" } },
+                            "patterns": [ { "include": "#all" } ]
                         }
-                    }
+                    ]
                 },
                 {
                     "comment": "Round brackets",
@@ -91,7 +59,7 @@
                 {
                     "comment": "Logical operators",
                     "name": "keyword.operator.logical.cup",
-                    "match": "[\\^&]"
+                    "match": "[!\\^&]"
                 },
                 {
                     "comment": "Arithmetic operators",
@@ -111,27 +79,22 @@
                 {
                     "comment": "Other operators",
                     "name": "keyword.operator.other.cup",
-                    "match": "[,;:@_|~$!?]"
+                    "match": "[.:,;$~_|@#?]"
                 },
                 {
                     "comment": "Control keywords",
                     "name": "keyword.control.cup",
-                    "match": "(?<=^|[^a-z])(if|elif|else|loop|ret|jump|try|def)(?=$|[^a-z])"
-                },
-                {
-                    "comment": "Other keywords",
-                    "name": "keyword.other.cup",
-                    "match": "(?<=^|[^a-z])(arg|use|as)(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-z])(loop|next|jump|ret|try|def)(?=$|[^a-zA-Z])"
                 },
                 {
                     "comment": "Type name",
                     "name": "entity.name.type.cup",
-                    "match": "(?<=^|[^a-z])[A-Z][a-zA-Z0-9]*(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-z])[0-9]*[A-Z][a-zA-Z0-9]*(?=$|[^a-z])"
                 },
                 {
                     "comment": "Variable name",
                     "name": "variable.other.cup",
-                    "match": "(?<=^|[^a-z])[a-z][a-zA-Z0-9]*(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-z])[a-z0-9][a-zA-Z0-9]*(?=$|[^a-z])"
                 }
             ]
         }
