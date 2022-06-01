@@ -10,56 +10,62 @@
                 {
                     "comment": "Comment",
                     "name": "comment.line.cup",
-                    "begin": "\"",
-                    "end": "\"",
-                    "captures": { "0": { "name": "keyword.operator.comment.cup" } },
-                    "patterns": [
-                        {
-                            "comment": "Escapes",
-                            "name": "constant.character.escape.cup",
-                            "match": "\\\\[\"\\\\]"
-                        }
-                    ]
+                    "match": "(>+).*",
+                    "captures": {
+                        "1": { "name": "keyword.operator.comment.cup" }
+                    }
                 },
                 {
-                    "comment": "String literal",
-                    "name": "string.quoted.single.cup",
-                    "begin": "'",
-                    "end": "'",
-                    "captures": { "0": { "name": "keyword.operator.string.cup" } },
-                    "patterns": [
-                        {
-                            "comment": "Escapes",
-                            "name": "constant.character.escape.cup",
-                            "match": "\\\\['\\\\{}]"
-                        },
-                        {
-                            "comment": "String interpolation",
-                            "begin": "{",
-                            "end": "}",
-                            "captures": { "0": { "name": "keyword.operator.brackets.curly.cup" } },
-                            "patterns": [ { "include": "#all" } ]
+                    "comment": "Text literal",
+                    "name": "string.quoted.double.cup",
+                    "match": "\"(?:\\\\\"|\\\\\\\\|[^\"\\\\])*\"",
+                    "captures": {
+                        "0": {
+                            "patterns": [
+                                {
+                                    "name": "keyword.operator.text.cup",
+                                    "match": "\""
+                                },
+                                {
+                                    "comment": "Escapes",
+                                    "name": "constant.character.escape.cup",
+                                    "match": "\\\\[\"\\\\]"
+                                }
+                            ]
                         }
-                    ]
+                    }
                 },
                 {
-                    "comment": "Round brackets",
+                    "comment": "Number literal",
+                    "name": "constant.numeric.cup",
+                    "match": "'(?:\\\\'|\\\\\\\\|[^'\\\\])*'",
+                    "captures": {
+                        "0": {
+                            "patterns": [
+                                {
+                                    "name": "keyword.operator.number.cup",
+                                    "match": "'"
+                                },
+                                {
+                                    "comment": "Escapes",
+                                    "name": "constant.character.escape.cup",
+                                    "match": "\\\\['\\\\]"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Expression group",
                     "begin": "\\(",
                     "end": "\\)",
                     "captures": { "0": { "name": "keyword.operator.brackets.round.cup" } },
                     "patterns": [ { "include": "#all" } ]
                 },
                 {
-                    "comment": "Square brackets",
-                    "begin": "\\[",
-                    "end": "\\]",
-                    "captures": { "0": { "name": "keyword.operator.brackets.square.cup" } },
-                    "patterns": [ { "include": "#all" } ]
-                },
-                {
                     "comment": "Logical operators",
                     "name": "keyword.operator.logical.cup",
-                    "match": "[!\\^&]"
+                    "match": "[!\\&^]"
                 },
                 {
                     "comment": "Arithmetic operators",
@@ -69,32 +75,27 @@
                 {
                     "comment": "Comparison operators",
                     "name": "keyword.operator.comparison.cup",
-                    "match": "==|!=|<|>|<=|>="
+                    "match": "=|@=|<|<="
                 },
                 {
                     "comment": "Assignment operators",
                     "name": "keyword.operator.assignment.cup",
-                    "match": "=|%=|\\+=|-=|\\*=|\\/="
+                    "match": "~|$~|@~|\\+~|-~|\\*~|\\/~|%~"
                 },
                 {
                     "comment": "Other operators",
                     "name": "keyword.operator.other.cup",
-                    "match": "[.:,;$~_|@#?]"
-                },
-                {
-                    "comment": "Control keywords",
-                    "name": "keyword.control.cup",
-                    "match": "(?<=^|[^a-z])(loop|next|jump|ret|try|def)(?=$|[^a-zA-Z])"
+                    "match": "[:.@#?|!\\[{,$;]"
                 },
                 {
                     "comment": "Type name",
                     "name": "entity.name.type.cup",
-                    "match": "(?<=^|[^a-z])[0-9]*[A-Z][a-zA-Z0-9]*(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-zA-Z0-9_])[A-Z][a-zA-Z0-9_]*(?=$|[^a-z])"
                 },
                 {
                     "comment": "Variable name",
                     "name": "variable.other.cup",
-                    "match": "(?<=^|[^a-z])[a-z0-9][a-zA-Z0-9]*(?=$|[^a-z])"
+                    "match": "(?<=^|[^a-zA-Z0-9_])[a-z0-9_][a-zA-Z0-9_]*(?=$|[^a-z])"
                 }
             ]
         }

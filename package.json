@@ -1,41 +1,42 @@
 {
-	"name": "cup",
-	"displayName": "Cup",
-	"description": "Official Cup Development Extension",
-	"icon": "cup.png",
-	"version": "0.0.10",
-	"publisher": "cup-lang",
-	"galleryBanner": {
-		"color": "#8a4b38",
-		"theme": "dark"
-	},
-	"homepage": "https://cup-lang.org",
-	"repository": "https://github.com/cup-lang/vscode-cup",
-	"categories": [
-		"Programming Languages"
-	],
-	"engines": {
-		"vscode": "^1.32.0"
-	},
-	"contributes": {
-		"languages": [
-			{
-				"id": "cup",
-				"aliases": [
-					"Cup",
-					"cup"
-				],
-				"extensions": [
-					".cup"
-				]
-			}
-		],
-		"grammars": [
-			{
-				"language": "cup",
-				"scopeName": "source.cup",
-				"path": "./grammar.json"
-			}
-		]
-	}
+    "name": "cup",
+    "displayName": "Cup",
+    "description": "Official Cup Development Extension",
+    "icon": "cup.png",
+    "version": "0.0.10",
+    "publisher": "cup-lang",
+    "galleryBanner": {
+        "color": "#8a4b38",
+        "theme": "dark"
+    },
+    "homepage": "https://cup-lang.org",
+    "repository": "https://github.com/cup-lang/vscode-cup",
+    "categories": [
+        "Programming Languages"
+    ],
+    "engines": {
+        "vscode": "^1.32.0"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "cup",
+                "aliases": [
+                    "Cup",
+                    "cup"
+                ],
+                "extensions": [
+                    ".cup"
+                ],
+                "configuration": "language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "cup",
+                "scopeName": "source.cup",
+                "path": "./grammar.json"
+            }
+        ]
+    }
 }
