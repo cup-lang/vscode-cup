@@ -77,14 +77,14 @@
 					"match": "[:.@#?|!\\[{,$;]"
 				},
 				{
-					"comment": "Object name",
-					"name": "variable.other.cup",
-					"match": "(?<=^|[^a-zA-Z0-9_])[a-z0-9_]+(?=$|[^a-zA-Z0-9_])"
-				},
-				{
 					"comment": "Type name",
 					"name": "entity.name.type.cup",
-					"match": "(?<=^|[^a-zA-Z0-9_])[a-zA-Z0-9_]+(?=$|[^a-zA-Z0-9_])"
+					"match": "(?<=^|[^a-zA-Z0-9_])[0-9_]*[A-Z][a-zA-Z0-9_]*(?=$|[^a-zA-Z0-9_])"
+				},
+				{
+					"comment": "Object name",
+					"name": "variable.other.cup",
+					"match": "(?<=^|[^a-z0-9_])[a-zA-Z0-9_]+(?=$|[^a-zA-Z0-9_])"
 				}
 			]
 		}
