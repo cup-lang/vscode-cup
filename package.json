@@ -11,13 +11,9 @@
 	},
 	"homepage": "https://cup-lang.org",
 	"repository": "https://github.com/cup-lang/vscode-cup",
-	"categories": [
-		"Programming Languages"
-	],
+	"categories": [ "Programming Languages" ],
 	"keywords": [ "cup", "cup-lang" ],
-	"engines": {
-		"vscode": "^1.32.0"
-	},
+	"engines": { "vscode": "^1.32.0" },
 	"license": "AGPL-3.0",
 	"activationEvents": [
 		"onLanguage:cup",
@@ -33,12 +29,10 @@
 			{
 				"id": "cup",
 				"aliases": [
-					"cup",
-					"Cup"
+					"Cup",
+					"cup"
 				],
-				"extensions": [
-					".cup"
-				],
+				"extensions": [ ".cup" ],
 				"configuration": "res/config.json"
 			}
 		],
