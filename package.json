@@ -4,26 +4,24 @@
 	"description": "Official Cup Development Extension",
 	"version": "0.0.10",
 	"publisher": "cup-lang",
-	"icon": "res/icon.png",
+	"icon": "icon.png",
 	"galleryBanner": {
 		"color": "#8a4b38",
 		"theme": "dark"
 	},
 	"homepage": "https://cup-lang.org",
 	"repository": "https://github.com/cup-lang/vscode-cup",
-	"categories": [ "Programming Languages" ],
-	"keywords": [ "cup", "cup-lang" ],
-	"engines": { "vscode": "^1.32.0" },
-	"license": "AGPL-3.0",
-	"activationEvents": [
-		"onLanguage:cup",
-		"onCommand:cup.run",
-		"onCommand:cup.build",
-		"onCommand:cup.check",
-		"onCommand:cup.add",
-		"onCommand:cup.update"
+	"categories": [
+		"Programming Languages"
 	],
-	"main": "src/main.js",
+	"keywords": [
+		"cup",
+		"cup-lang"
+	],
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"license": "AGPL-3.0",
 	"contributes": {
 		"languages": [
 			{
@@ -32,85 +30,18 @@
 					"Cup",
 					"cup"
 				],
-				"extensions": [ ".cup" ],
-				"configuration": "res/config.json"
+				"extensions": [
+					".cup"
+				],
+				"configuration": "config.json"
 			}
 		],
 		"grammars": [
 			{
 				"language": "cup",
 				"scopeName": "source.cup",
-				"path": "res/grammar.json"
+				"path": "grammar.json"
 			}
-		],
-		"commands": [
-			{
-				"command": "cup.run",
-				"title": "Run Project",
-				"description": "Build and run this Cup Project",
-				"category": "Cup"
-			},
-			{
-				"command": "cup.build",
-				"title": "Build Project",
-				"description": "Build this Cup Project",
-				"category": "Cup"
-			},
-			{
-				"command": "cup.check",
-				"title": "Check Project",
-				"description": "Analyze and rate this Cup Project",
-				"category": "Cup"
-			},
-			{
-				"command": "cup.add",
-				"args": "dependency",
-				"title": "Add Dependency",
-				"description": "Add given dependency to this Cup Project",
-				"category": "Cup"
-			},
-			{
-				"command": "cup.delete",
-				"args": "dependency",
-				"title": "Delete Dependency",
-				"description": "Delete given dependency from this Cup Project",
-				"category": "Cup"
-			},
-			{
-				"command": "cup.update",
-				"args": "dependency",
-				"title": "Update Dependency",
-				"description": "Update given dependency from this Cup Project",
-				"category": "Cup"
-			}
-		],
-		"menus": {
-			"commandPalette": [
-				{
-					"command": "cup.run",
-					"when": "editorLangId == cup"
-				},
-				{
-					"command": "cup.build",
-					"when": "editorLangId == cup"
-				},
-				{
-					"command": "cup.check",
-					"when": "editorLangId == cup"
-				},
-				{
-					"command": "cup.add",
-					"when": "editorLangId == cup"
-				},
-				{
-					"command": "cup.delete",
-					"when": "editorLangId == cup"
-				},
-				{
-					"command": "cup.update",
-					"when": "editorLangId == cup"
-				}
-			]
-		}
+		]
 	}
 }

@@ -1,21 +1,21 @@
 {
 	"comments": {
-		"blockComment": [ "{", "}" ]
+		"lineComment": ">"
 	},
 	"brackets": [
-		[ "{", "}"],
-		[ "(", ")" ]
+		[ "(", ")" ],
+		[ "[", "]" ]
 	],
 	"autoClosingPairs": [
-		[ "{", "}"],
 		[ "(", ")"],
+		[ "[", "]"],
 		{ "open": "\"", "close": "\"", "notIn": [ "string", "comment" ] },
 		{ "open": "'", "close": "'", "notIn": [ "string", "comment" ] }
 	],
-	"autoCloseBefore": ">)&^+-*/%=<~:.|![{,$; \n\t",
+	"autoCloseBefore": ">)&^+-*/%=<~:.|![,$; \n\t",
 	"surroundingPairs": [
-		[ "{", "}" ],
 		[ "(", ")" ],
+		[ "[", "]" ],
 		[ "\"", "\"" ],
 		[ "'", "'" ]
 	]

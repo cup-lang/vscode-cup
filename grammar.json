@@ -3,19 +3,16 @@
 	"scopeName": "source.cup",
 	"fileTypes": [ "cup" ],
 	"repository": {
-		"comment": {
-			"comment": "Comment",
-			"name": "comment.line.cup",
-			"begin": "{",
-			"end": "}",
-			"captures": {
-				"0": { "name": "keyword.operator.comment.cup" }
-			},
-			"patterns": [ { "include": "#comment" } ]
-		},
 		"all": {
 			"patterns": [
-				{ "include": "#comment" },
+				{
+					"comment": "Comment",
+					"name": "comment.line.cup",
+					"match": "(>+).*",
+					"captures": {
+						"1": { "name": "keyword.operator.comment.cup" }
+					}
+				},
 				{
 					"comment": "Text literal",
 					"name": "string.quoted.double.cup",
@@ -72,6 +69,11 @@
 					"end": "\\)",
 					"captures": { "0": { "name": "keyword.operator.brackets.round.cup" } },
 					"patterns": [ { "include": "#all" } ]
+				},
+				{
+					"comment": "Label",
+					"name": "entity.name.tag.label.cup",
+					"match": ";\\s*[a-zA-Z0-9_]+"
 				},
 				{
 					"comment": "Logical operators",
